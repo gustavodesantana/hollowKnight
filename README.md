@@ -24,7 +24,7 @@
 - `Validações`: Ambos os formularios tem validações para a prevenção de erros no cadastro
 - `Sistema de votação`: Dentro do seu perfil você encontra um sistema de votação para escolher qual a sua luta preferida no jogo
 - `Ranking`: Assim como também um ranking listando as 10 lutas mais votadas
-- `Mural`: Também há um mural de aviso para que os usuarios conseguiam deixar suas assinaturas![Uploading 79333823.jpg…]()
+- `Mural`: Também há um mural de aviso para que os usuarios conseguiam deixar suas assinaturas
 
 
 #
