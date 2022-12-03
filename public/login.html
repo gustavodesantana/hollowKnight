@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/icon/iconHollowWhiteSolid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <header>
+        <section style="position:relative;" class="nav">
+                <a class="imgHeader" href="./index.html#hero"><img src="./assets/icon/iconHollowWhiteSolid.svg" alt=""></a>
+        </section>
+    </header>
+
+    <main>
+        <div class="form">
+            <div class="box-form">
+                <section class="campo">
+                    <p class="pAviso" id="pAviso"></p>
+                    <label for="txEmail">Email</label>
+                    <input type="email" name="txEmail" id="txEmail">
+                </section>
+                <section class="campo">
+                    <label for="txSenha">Senha</label>
+                    <input type="password" name="txSenha" id="txSenha">
+                </section>
+                <button class="btn-nav pointer pointer" id="botaoSeta" onclick="entrar()">Login</button>
+
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/img/hollow-knight-mine.gif" id="loading-gif">
+                </div>
+
+                <a href="./cadastro.html">Criar conta</a>
+            </div>
+        </div>
+
+
+        <div class="card_erro" id="cardErro">
+            <span id="mensagem_erro"></span>
+          </div>
+    </main>
+</body>
+</html>
+
+<script src="./js/funcoes.js"></script>
+<script>
+
+function entrar() {
+        aguardar();
+
+        var emailVar = txEmail.value;
+        var senhaVar = txSenha.value;
+        var loginIncompleto = false;
+
+        if (emailVar == "" || senhaVar == "") {
+            pAviso.style.display = 'block'
+
+            loginIncompleto = true;
+            finalizarAguardar();
+            return false;
+        }
+        
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+
+        if(!loginIncompleto){
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.FK_COMENTARIO = json.fkComentario;
+                    sessionStorage.FK_CHEFE = json.fkChefe;
+
+                    setTimeout(function () {
+                        window.location = "./votacao.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+                console.log("Houve um erro ao tentar realizar o login!");
+                
+                pAviso.innerHTML = "Email e/ou senha inválido(s)"
+                pAviso.style.display = 'block'
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+}
+</script>

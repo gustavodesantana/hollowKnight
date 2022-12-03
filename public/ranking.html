@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/stylePerfil.css">
+    <link rel="stylesheet" href="./css/perfil.css">
+    <link rel="stylesheet" href="./css/ranking.css">
+    <link rel="shortcut icon" href="./assets/icon/iconHollowWhiteSolid.svg" type="image/x-icon">
+    <title>Projeto Individual | Gustavo</title>
+</head>
+<body onload="validarSessao()">
+    <header>
+        <div class="container">
+            <section class="nav">
+                    <a href="./index.html#hero"><img src="./assets/icon/iconHollowWhiteSolid.svg" alt=""></a>
+                    <section class="itemContainer">
+                        <section class="item"> <a href="./muralAviso.html">Mural</a> </section>
+                        <section class="item"> <a href="./ranking.html">Ranking</a></section>
+                        <section class="item"> <a href="./votacao.html">Votação</a></section>
+                        <section class="item"> <span id="nomeUsuario">Usuario</span></section>
+                        <section class="item"> <button onclick="sair()" class=" btn-nav pointer">Sair</button></section>
+                    </section>
+            </section>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+                <div class="containerTitulo">
+                    <span class="titulo">Ranking</span> 
+                    <span class="subTitulo" >Rank das melhores lutas do jogo</span> 
+                </div>
+        
+            <div class="rankings" id="rankings">
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="rodape">
+        <h1 class="rodape-titulo"> Copyright Oficial Gustavo©</h1>
+    </footer>
+
+    <script src="./js/scrollNavBar.js"></script>
+    <script src="./js/funcoes.js"></script>
+    <script src="./js/ranking.js"></script>
+</body>
+</html>
+
+<script>
+    function sair(){
+        location = "index.html"
+    }
+</script>
