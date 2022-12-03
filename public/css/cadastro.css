@@ -1,0 +1,127 @@
+@font-face {
+    font-family:'hollow';
+    src: url('../assets/font/Trajan Pro Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: 'hollow',Times,serif;
+}
+
+header {
+    display: flex;
+    background: rgb(54,54,54);
+    background: linear-gradient(180deg, rgba(54,54,54,1) 5%, rgba(37,37,37,1) 22%, rgba(0,0,0,1) 45%);
+    width: 100%;
+    justify-content: flex-start;
+}
+
+main{
+    width: 100%;
+    background-image: url(../assets/img/backCadastro.jpg);
+    background-size: cover;
+    background-position: contain;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+footer {
+    display: flex;
+    width: 100%;
+    height:100%;
+    max-height: 1100px;
+    justify-content: center;
+}
+
+.imgHeader{
+    margin-left: 65px;
+    position:absolute; 
+    top:0; 
+    left:0;
+}
+
+.avisoNome, .avisoEmail, .avisoSenha, .avisoConfirmarSenha{
+    display: none;
+    color: rgb(116,29,26);
+    max-width: 300px;
+    font-size: 0.825em;
+    margin-bottom: 5px;
+}
+
+.loading-div {
+    width: 50px;
+    margin: 0 auto;
+    display: none;
+}
+  
+.loading-div img {
+    height: 60px;
+    width: 60px;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.box-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center; 
+    margin: 70px auto;
+    width: 30%;
+    color: #FFF2E7;
+    background: rgba( 166, 166, 166, 0.2 );
+    backdrop-filter: blur( 1.5px );
+    -webkit-backdrop-filter: blur( 1.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.campo{
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.campo input{
+    color: #FFF2E7;
+    padding: 5px;
+    background: rgba( 166, 166, 166, 0.2 );
+    backdrop-filter: blur( 1.5px );
+    -webkit-backdrop-filter: blur( 1.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.btn-nav{
+    color: #FFF2E7;
+    border: 1px solid #FFF2E7;
+    background: rgb(54,54,54);
+    background: linear-gradient(180deg, rgba(54,54,54,1) 5%, rgba(37,37,37,1) 22%, rgba(0,0,0,1) 45%);
+    border-radius:5px;
+    padding: 5px;
+    margin-bottom:30px;
+}
+
+.btn-nav:hover{
+    color: black;
+    background: rgb(228,228,228);
+    background: linear-gradient(180deg, rgba(228,228,228,1) 12%, rgba(221,205,162,1) 62%);
+}
+
+
+/*
+sessão para pagina de login
+*/
+
+.pAviso{
+    display: none;
+    color: rgb(116,29,26);
+    max-width: 300px;
+    font-size: 0.825em;
+    margin-bottom: 5px;
+}
